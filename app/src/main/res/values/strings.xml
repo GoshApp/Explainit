@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Explainit</string>
+
+    <string name="prompt_message">Message</string>
+    <string name="action_send">Send</string>
+
+    <string name="connect">Connected</string>
+    <string name="disconnect">Disconnected, Please check your internet connection</string>
+    <string name="error_connect">Failed to connect</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
