@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         javaCameraView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if(checkSelfPermission(Manifest.permission.CAMERA)== PackageManager.PERMISSION_GRANTED){
                         ///method to get Images

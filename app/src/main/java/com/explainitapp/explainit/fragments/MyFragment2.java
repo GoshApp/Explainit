@@ -219,14 +219,10 @@ public class MyFragment2 extends Fragment {
     private Emitter.Listener onConnectError = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
                     Log.e(TAG, "Error connecting");
                     Toast.makeText(getActivity().getApplicationContext(),
                             R.string.error_connect, Toast.LENGTH_LONG).show();
-                }
-            });
+
         }
     };
 }

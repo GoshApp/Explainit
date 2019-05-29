@@ -98,7 +98,6 @@ public class MyTestFragment extends Fragment {
     private void test() {
         String[] obligatoryIds = {"test0", "test1", "test2"};
         JSONObject createUser = new JSONObject();
-        JSONObject createUser2 = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         jsonArray.put("s4");
         jsonArray.put("ss2");
@@ -109,8 +108,6 @@ public class MyTestFragment extends Fragment {
             createUser.put("username", 1);
             createUser.put("email", "test2");
             createUser.put("birthdate", "datanasc");
-            createUser2 = createUser;
-            createUser.put("createUser", createUser2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -197,9 +194,6 @@ public class MyTestFragment extends Fragment {
     private Emitter.Listener onConnect = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
                     if(!isConnected) {
                         if(null!=mUsername)
                             mSocket.emit("add user", mUsername);
@@ -207,37 +201,27 @@ public class MyTestFragment extends Fragment {
                                 R.string.connect, Toast.LENGTH_LONG).show();
                         isConnected = true;
                     }
-                }
-            });
+
         }
     };
 
     private Emitter.Listener onDisconnect = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
                     Log.i(TAG, "diconnected");
                     isConnected = false;
                     Toast.makeText(getActivity().getApplicationContext(),
                             R.string.disconnect, Toast.LENGTH_LONG).show();
-                }
-            });
         }
     };
 
     private Emitter.Listener onConnectError = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
                     Log.e(TAG, "Error connecting");
                     Toast.makeText(getActivity().getApplicationContext(),
                             R.string.error_connect, Toast.LENGTH_LONG).show();
-                }
-            });
+
         }
     };
 }
