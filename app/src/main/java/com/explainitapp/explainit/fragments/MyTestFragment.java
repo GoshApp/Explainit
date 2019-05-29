@@ -170,7 +170,6 @@ public class MyTestFragment extends Fragment {
         objectList.getObligatoryIds().add(0, myPar);
         // perform the sending message attempt.
         mSocket.emit("getObjectList",objectList);
-        //
     }
 
 
